@@ -138,7 +138,7 @@ class _NewTabPageState extends State<NewTabPage> {
                         const Center(child: CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
-                    fit: BoxFit.cover, // Ensure image fills container
+                    fit: BoxFit.cover, // Estira la imagen en el grid
                   ),
                 );
               }),
@@ -185,7 +185,6 @@ class _NewTabPageState extends State<NewTabPage> {
                 ),
               );
               break;
-            // Add cases for other indices if needed
           }
         },
         currentIndex: 1,
