@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:postwave/Postwave_feed.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'notis.dart';
 
 Color selectedColor = Colors.purple; // Color for the selected item
 Color unselectedColor = Colors.black; // Color for unselected items
@@ -158,7 +159,19 @@ class _NewTabPageState extends State<NewTabPage> {
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                );
+              },
+              child: Padding(
+                padding: EdgeInsets.all(
+                    10.0), // Aumenta este valor para aumentar el área de toque
+                child: Icon(Icons.notifications),
+              ),
+            ),
             label: 'Notificaciones',
           ),
         ],

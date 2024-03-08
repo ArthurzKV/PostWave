@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'chatUI.dart'; 
+import 'chatUI.dart';
+import 'notis.dart';
 // dsadasds
 
 Color selectedColor = Colors.purple; // Color for the selected item
@@ -147,7 +148,7 @@ class PostwaveFeedPage extends StatelessWidget {
             icon: Icon(Icons.search),
             onPressed: () {},
           ),
-           IconButton(
+          IconButton(
             icon: Icon(Icons.message),
             onPressed: () {
               Navigator.push(
@@ -178,21 +179,35 @@ class PostwaveFeedPage extends StatelessWidget {
             label: 'Inicio',
           ),
           BottomNavigationBarItem(
-            icon: IconButton(
-              icon: Icon(Icons.person),
-              onPressed: () {
+            icon: GestureDetector(
+              onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          NewTabPage()), //Esta clase esta en profile.dart
+                  MaterialPageRoute(builder: (context) => NewTabPage()),
                 );
               },
+              child: Padding(
+                padding: EdgeInsets.all(
+                    10.0), // Aumenta este valor para aumentar el área de toque
+                child: Icon(Icons.person),
+              ),
             ),
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                );
+              },
+              child: Padding(
+                padding: EdgeInsets.all(
+                    10.0), // Aumenta este valor para aumentar el área de toque
+                child: Icon(Icons.notifications),
+              ),
+            ),
             label: 'Notificaciones',
           ),
         ],
