@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// dsadasds
 
 void main() {
   runApp(PostwaveApp());
@@ -172,7 +173,8 @@ class PostwaveFeedPage extends StatelessWidget {
   }
 
   Widget _buildPostCard(BuildContext context) {
-    String imageUrl = 'https://petapixel.com/assets/uploads/2017/08/IMG_0513.jpg';
+    String imageUrl =
+        'https://petapixel.com/assets/uploads/2017/08/IMG_0513.jpg';
     String username = 'Nombre de usuario';
 
     return Container(
