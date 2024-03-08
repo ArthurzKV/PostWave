@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Postwave_feed.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 // Importa la página del feed de Postwave desde el archivo correspondiente
 //penepenepnepne
@@ -46,7 +47,14 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Aquí se agrega el logo de Flutter
-              FlutterLogo(size: 100),
+              CachedNetworkImage(
+                imageUrl:
+                    'https://i.ibb.co/h2VbBVT/455740d2-81fe-4276-994a-a6a3557f8b2f-removebg-preview.png',
+                width: 400,
+                height: 400,
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
               SizedBox(height: 20),
               // Aquí se agrega el formulario de inicio de sesión
               LoginForm(),

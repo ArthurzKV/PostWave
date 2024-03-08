@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 // dsadasds
+
+Color selectedColor = Colors.purple; // Color for the selected item
+Color unselectedColor = Colors.black; // Color for unselected items
 
 void main() {
   runApp(PostwaveApp());
@@ -39,7 +43,13 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(size: 100),
+              CachedNetworkImage(
+                imageUrl:
+                    'https://drive.google.com/file/d/1zAIyWp9aYs5NzKYzMqN-afMGkejTRMsr/view?usp=drive_link',
+                width: 100,
+                height: 100,
+                placeholder: (context, url) => CircularProgressIndicator(),
+              ),
               SizedBox(height: 20),
               LoginForm(),
             ],
@@ -154,6 +164,8 @@ class PostwaveFeedPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: selectedColor,
+        unselectedItemColor: unselectedColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -178,7 +190,7 @@ class PostwaveFeedPage extends StatelessWidget {
             label: 'Notificaciones',
           ),
         ],
-        onTap: (index) {},
+        currentIndex: 0,
       ),
     );
   }
