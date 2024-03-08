@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:postwave/notis.dart';
 import 'profile.dart';
 import 'chatUI.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'ReportProblem.dart';
+
+Color selectedColor = Colors.purple; // Color for the selected item
+Color unselectedColor = Colors.black; // Color for unselected items
 
 void main() {
   runApp(PostwaveApp());
@@ -39,8 +45,16 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(size: 100),
+              CachedNetworkImage(
+                imageUrl:
+                    'https://i.ibb.co/h2VbBVT/455740d2-81fe-4276-994a-a6a3557f8b2f-removebg-preview.png',
+                width: 400,
+                height: 400,
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
               SizedBox(height: 20),
+              // Aquí se agrega el formulario de inicio de sesión
               LoginForm(),
             ],
           ),
@@ -63,7 +77,7 @@ class _LoginFormState extends State<LoginForm> {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
-    if (username == 'usuario' && password == 'contraseña') {
+    if (username == '' && password == '') {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => PostwaveFeedPage()),
@@ -174,7 +188,10 @@ class PostwaveFeedPage extends StatelessWidget {
             ListTile(
               title: Text('Reportar un problema'),
               onTap: () {
-                // Implementar acción para Reportar un problema
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ReportProblemPage()),
+                );
               },
             ),
             ListTile(
@@ -210,6 +227,8 @@ class PostwaveFeedPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: selectedColor,
+        unselectedItemColor: unselectedColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -221,16 +240,22 @@ class PostwaveFeedPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          NewTabPage()), //Esta clase esta en profile.dart
+                  MaterialPageRoute(builder: (context) => NewTabPage()),
                 );
               },
             ),
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: IconButton(
+              icon: Icon(Icons.notifications),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                );
+              },
+            ),
             label: 'Notificaciones',
           ),
         ],
