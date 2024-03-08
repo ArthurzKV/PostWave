@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profile.dart';
 // dsadasds
 
 void main() {
@@ -159,7 +160,17 @@ class PostwaveFeedPage extends StatelessWidget {
             label: 'Inicio',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          NewTabPage()), //Esta clase esta en profile.dart
+                );
+              },
+            ),
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
