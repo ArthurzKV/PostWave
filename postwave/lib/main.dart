@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Postwave_feed.dart';
 
- // Importa la página del feed de Postwave desde el archivo correspondiente
+// Importa la página del feed de Postwave desde el archivo correspondiente
+//penepenepnepne
 
 void main() {
   runApp(PostwaveApp());
@@ -14,9 +15,10 @@ class PostwaveApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Postwave',
       theme: ThemeData(
-        // Define tu tema aquí
-      ),
-      home: LoginPage(), // Muestra la página de inicio de sesión al iniciar la aplicación
+          // Define tu tema aquí
+          ),
+      home:
+          LoginPage(), // Muestra la página de inicio de sesión al iniciar la aplicación
     );
   }
 }
@@ -33,7 +35,10 @@ class LoginPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFD0E6F0), Color(0xFFA0D4F0)], // Azul claro con gradiente
+            colors: [
+              Color(0xFFD0E6F0),
+              Color(0xFFA0D4F0)
+            ], // Azul claro con gradiente
           ),
         ),
         child: Center(
@@ -72,7 +77,9 @@ class _LoginFormState extends State<LoginForm> {
       // Si las credenciales son correctas, navegamos a la página del feed de Postwave
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => PostwaveFeedPage()), // Aquí estamos utilizando la página del feed de Postwave del archivo postwave_feed.dart
+        MaterialPageRoute(
+            builder: (context) =>
+                PostwaveFeedPage()), // Aquí estamos utilizando la página del feed de Postwave del archivo postwave_feed.dart
       );
     } else {
       // Si las credenciales son incorrectas, mostramos un diálogo de error
@@ -123,10 +130,11 @@ class _LoginFormState extends State<LoginForm> {
           ),
           SizedBox(height: 20.0),
           ElevatedButton(
-            onPressed: () => _submitForm(context), // Llama a la función _submitForm
+            onPressed: () =>
+                _submitForm(context), // Llama a la función _submitForm
             child: Text('Iniciar sesión'),
             style: ElevatedButton.styleFrom(// Color del botón morado
-            ),
+                ),
           ),
         ],
       ),
