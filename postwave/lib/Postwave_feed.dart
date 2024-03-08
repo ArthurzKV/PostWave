@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'chatUI.dart';
-import 'notis.dart';
-// dsadasds
-
-Color selectedColor = Colors.purple; // Color for the selected item
-Color unselectedColor = Colors.black; // Color for unselected items
 
 void main() {
   runApp(PostwaveApp());
@@ -45,13 +39,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CachedNetworkImage(
-                imageUrl:
-                    'https://drive.google.com/file/d/1zAIyWp9aYs5NzKYzMqN-afMGkejTRMsr/view?usp=drive_link',
-                width: 100,
-                height: 100,
-                placeholder: (context, url) => CircularProgressIndicator(),
-              ),
+              FlutterLogo(size: 100),
               SizedBox(height: 20),
               LoginForm(),
             ],
@@ -138,6 +126,14 @@ class _LoginFormState extends State<LoginForm> {
 }
 
 class PostwaveFeedPage extends StatelessWidget {
+  void _logout(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => PostwaveApp()),
+      (route) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,6 +155,49 @@ class PostwaveFeedPage extends StatelessWidget {
           ),
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 90, 172, 239),
+              ),
+              child: Text(
+                'Ajustes',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Reportar un problema'),
+              onTap: () {
+                // Implementar acción para Reportar un problema
+              },
+            ),
+            ListTile(
+              title: Text('Usuarios bloqueados'),
+              onTap: () {
+                // Implementar acción para Usuarios bloqueados
+              },
+            ),
+            ListTile(
+              title: Text('Ajustes'),
+              onTap: () {
+                // Implementar acción para Configuración
+              },
+            ),
+            ListTile(
+              title: Text('Cerrar sesión'),
+              onTap: () {
+                _logout(context); // Llama a la función para cerrar sesión
+              },
+            ),
+          ],
+        ),
+      ),
       body: Container(
         color: Color(0xFFA0D4F0),
         child: Center(
@@ -171,47 +210,31 @@ class PostwaveFeedPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: selectedColor,
-        unselectedItemColor: unselectedColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Inicio',
           ),
           BottomNavigationBarItem(
-            icon: GestureDetector(
-              onTap: () {
+            icon: IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NewTabPage()),
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          NewTabPage()), //Esta clase esta en profile.dart
                 );
               },
-              child: Padding(
-                padding: EdgeInsets.all(
-                    10.0), // Aumenta este valor para aumentar el área de toque
-                child: Icon(Icons.person),
-              ),
             ),
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
-            icon: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotificationPage()),
-                );
-              },
-              child: Padding(
-                padding: EdgeInsets.all(
-                    10.0), // Aumenta este valor para aumentar el área de toque
-                child: Icon(Icons.notifications),
-              ),
-            ),
+            icon: Icon(Icons.notifications),
             label: 'Notificaciones',
           ),
         ],
-        currentIndex: 0,
+        onTap: (index) {},
       ),
     );
   }

@@ -57,7 +57,7 @@ class _ChatScreenState extends State<ChatScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage('https://i.pinimg.com/736x/aa/96/96/aa9696cd9f7f1b1af4f0ab59133d9b3b.jpg'), // Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen de fondo
+            image: NetworkImage('https://i.pinimg.com/564x/55/e3/e0/55e3e06ff4fb2ec02e06631f818d55d1.jpg.webp'), // Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen de fondo
             fit: BoxFit.cover,
           ),
         ),
@@ -91,11 +91,11 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           CircleAvatar(
             radius: 20,
-            backgroundImage: NetworkImage('https://i.pinimg.com/736x/aa/96/96/aa9696cd9f7f1b1af4f0ab59133d9b3b.jpg'), // Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen de perfil
+            backgroundImage: NetworkImage('https://cdn.mos.cms.futurecdn.net/3E6XZEAtuGD2yCDM7UhyXL-1280-80.jpg.webp'), // Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen de perfil
           ),
           SizedBox(width: 10),
           Text(
-            'Nombre de Usuario',
+            'User2990',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -146,7 +146,7 @@ class _ChatScreenState extends State<ChatScreen> {
       padding: EdgeInsets.all(8.0),
       color: Colors.white.withOpacity(0.5), // Ajusta la opacidad del color de fondo si lo deseas
       child: Text(
-        'Chat started at $firstMessageTime', // Cambia el formato de la fecha según tus preferencias
+        '$firstMessageTime', // Cambia el formato de la fecha según tus preferencias
         style: TextStyle(
           fontSize: 12,
           color: Colors.grey,
