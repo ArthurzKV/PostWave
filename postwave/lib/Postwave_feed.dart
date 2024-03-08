@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'chatUI.dart'; 
 // dsadasds
 
 Color selectedColor = Colors.purple; // Color for the selected item
@@ -146,9 +147,14 @@ class PostwaveFeedPage extends StatelessWidget {
             icon: Icon(Icons.search),
             onPressed: () {},
           ),
-          IconButton(
+           IconButton(
             icon: Icon(Icons.message),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChatScreen()),
+              );
+            },
           ),
         ],
       ),
