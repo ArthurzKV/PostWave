@@ -22,7 +22,7 @@ class _NewTabPageState extends State<NewTabPage> {
   int followingCount = 23;
   int postCount = 2;
 
-  // Function to build a statistics card
+  // Es la carta donde aparecen los numeros de seguidores, seguidos y publicaciones
   Widget buildStatCard({required int count, required String label}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -168,7 +168,7 @@ class _NewTabPageState extends State<NewTabPage> {
               },
               child: Padding(
                 padding: EdgeInsets.all(
-                    10.0), // Aumenta este valor para aumentar el área de toque
+                    10.0), // Area de toque en iconos
                 child: Icon(Icons.notifications),
               ),
             ),
